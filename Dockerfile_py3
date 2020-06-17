@@ -1,6 +1,6 @@
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
-MAINTAINER taritree.wongjirad@tufts.edu
+MAINTAINER ran4@hawk.iit.edu
 
 # ROOT6
 RUN apt-get update && \
@@ -20,9 +20,10 @@ RUN apt-get update && \
 			libxft-dev \
 			libxml2-dev \
 			libxpm-dev \
-			python \
+			python3 \
 			ipython-notebook \
-			python-dev \
+			python3-dev \
+			python3-pip\
 			tar \
 			wget && \
     wget https://root.cern.ch/download/root_v6.08.06.source.tar.gz && tar -zxvf root_v6.08.06.source.tar.gz -C /tmp/ && \
@@ -49,10 +50,10 @@ RUN apt-get update && \
 			libtbb2 \
 			libtbb-dev \
 			pkg-config \
-			python-dev \
-			python-numpy \
-			python-pandas && \
-    pip install root_numpy && \
+			python3-dev \
+			python3-numpy \
+			python3-pandas && \
+    pip3 install root_numpy && \
     apt-get autoremove -y & apt-get clean -y & \
     mkdir -p /tmp/build && cd /tmp/ && \
     git clone https://github.com/Itseez/opencv source && cd source && \
